@@ -18,23 +18,34 @@ import text.Token;
 import text.Word;
 
 
+/**
+ * Class that implement some functionality with text
+ */
 public class TextProcess {
 	
+	/**
+	 * Text
+	 */
 	private Text text;
-	static int pos;
 	
 	
-	
+	/**
+	 * Constructor
+	 */
 	public TextProcess() {
 		text = new Text();
-		pos = 0;
 	}
 	
 	
+	/**
+	 * Read text from file
+	 * @param file tile with text
+	 * @throws FileNotFoundException
+	 */
 	public void readText(String file) throws FileNotFoundException {
 		Scanner sc = new Scanner(new File(file));
 		
-		sc.useDelimiter(" |,|\\.|\\?|\\!|\\-");
+		sc.useDelimiter(" |,|\\.|\\?|\\!|\\-"); // set delimeter for sentences
 		Sentence sent = new Sentence();
 		while (sc.hasNext()) {
 			sent.addWord(new Word(sc.next()));
@@ -42,6 +53,11 @@ public class TextProcess {
 		text.addSentence(sent);
 	}
 	
+	/**
+	 * Get sorted list of words. (Sorted with frequency of some character in words)
+	 * @param c character for count frequency
+	 * @return list of sorted words
+	 */
 	public List<Token> sort(final char c) {
 		
 		List<Token> res = getText().getAllWord();

@@ -6,18 +6,35 @@ import java.util.List;
 
 import text.Token.Type;
 
+/**
+ * Text class - list of sentences
+ */
 public class Text {
 	
+	/**
+	 * Sentences in this text
+	 */
 	List<Sentence> text;
 	
+	/**
+	 * Concstructor
+	 */
 	public Text() {
 		text = new LinkedList<Sentence>();
 	}
 	
+	/**
+	 * Add new sentence to this text
+	 * @param sentence sentence to add
+	 */
 	public void addSentence(Sentence sentence) {
 		text.add(sentence);
 	}
 	
+	/**
+	 * Get list of all words in this text
+	 * @return list of all word
+	 */
 	public List<Token> getAllWord() {
 		List<Token> res = new ArrayList<Token>();
 		
@@ -30,6 +47,10 @@ public class Text {
 		return res;
 	}
 	
+	/*
+	 * (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
 	@Override
 	public String toString() {
 		StringBuilder sb = new StringBuilder();
